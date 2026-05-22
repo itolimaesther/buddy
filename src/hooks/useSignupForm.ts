@@ -45,7 +45,7 @@ export function useSignupForm() {
 		}
 
 		const fieldErrors: SignupFormErrors = {};
-		result.error?.errors.forEach((err) => {
+		result.error?.issues.forEach((err) => {
 			const key = err.path[0] as keyof SignupFormErrors;
 			if (!fieldErrors[key]) fieldErrors[key] = err.message;
 		});

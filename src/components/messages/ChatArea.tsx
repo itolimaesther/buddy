@@ -6,8 +6,7 @@ import {
 } from "lucide-react";
 import { Avatar } from "../../components/ui/Avatar";
 import type { Contact, ChatMessage } from "../../types";
-import AvatarInf from "../../assets/avatar7.png"
-import { FileBubble } from "./FileBubble";
+import AvatarInf from "../../assets/avatar7.png";
 
 interface ChatAreaProps {
 	contact: Contact | undefined;
@@ -102,26 +101,25 @@ export const ChatArea: React.FC<ChatAreaProps> = ({ contact, messages }) => {
 									<div>
 										{msg.type === "file" ? (
 											/* File attachment */
-											<FileBubble msg={msg} isMe={isMe} />
+											<div
+												className={
+													"bg-white border border-gray200 rounded-xl " +
+													"px-4 py-3 flex items-center gap-3 max-w-[240px]"
+												}
+											>
+												<div
+													className={
+														"w-10 h-12 rounded-md bg-gray100 flex items-center " +
+														"justify-center text-[11px] text-gray500 font-semibold"
+													}
+												>
+													PDF
+												</div>
+												<span className="text-[13px] text-dark font-medium truncate">
+													{msg.filename}
+												</span>
+											</div>
 										) : (
-											// <div
-											// 	className={
-											// 		"bg-white border border-gray200 rounded-xl " +
-											// 		"px-4 py-3 flex items-center gap-3 max-w-[240px]"
-											// 	}
-											// >
-											// 	<div
-											// 		className={
-											// 			"w-10 h-12 rounded-md bg-gray100 flex items-center " +
-											// 			"justify-center text-[11px] text-gray500 font-semibold"
-											// 		}
-											// 	>
-											// 		PDF
-											// 	</div>
-											// 	<span className="text-[13px] text-dark font-medium truncate">
-											// 		{msg.filename}
-											// 	</span>
-											// </div>
 											/* Text bubble */
 											<div
 												className={`px-4 py-3 max-w-[320px] ${

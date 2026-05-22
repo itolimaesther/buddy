@@ -1,5 +1,5 @@
 // ─── Navigation ───────────────────────────────────────────────────────────────
-import type { LucideIcon } from "lucide-react";
+
 export type Page =
 	| "signup-method"
 	| "signup-form"
@@ -45,15 +45,22 @@ export interface Contact {
 export type MessageSender = "me" | "other";
 
 export interface ChatMessage {
+	// id: number;
+	// from: MessageSender;
+	// text?: string;
+	// time?: string;
+	// type?: "file";
+	// filename?: string;
+	// fileUrl?: string;
+	// mimeType?: string;
+	// fileSize?: number;
+	// yesterday?: boolean;
 	id: number;
 	from: MessageSender;
 	text?: string;
 	time?: string;
 	type?: "file";
 	filename?: string;
-  fileUrl?: string;
-	mimeType?: string;
-	fileSize?: number;
 	yesterday?: boolean;
 }
 

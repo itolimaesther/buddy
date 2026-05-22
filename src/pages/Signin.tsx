@@ -4,20 +4,20 @@ import { Mail, Lock, Check } from "lucide-react";
 import { AuthLayout } from "../components/layouts/AuthLayout";
 import { Button, Input } from "../components/ui";
 import { useSignupForm } from "../hooks/useSignupForm";
-import { useAuthStore } from "../store/useAuthStore";
+// import { useAuthStore } from "../store/useAuthStore";
 import { PASSWORD_MAX_LENGTH } from "../constants";
 
 export const SigninFormPage: React.FC = () => {
 	const navigate = useNavigate();
-	const setRegistrationEmail = useAuthStore((s) => s.setRegistrationEmail);
+	// const setRegistrationEmail = useAuthStore((s) => s.setRegistrationEmail);
 
 	const {
 		form,
 		errors,
 		passwordLength,
 		isEmailValid,
-    isFormComplete,
-    isLoginComplete,
+		// isFormComplete,
+		isLoginComplete,
 		handleChange,
 		validateAll,
 	} = useSignupForm();
@@ -112,7 +112,7 @@ export const SigninFormPage: React.FC = () => {
 			</div>
 		</AuthLayout>
 	);
-};
+};;
 
 
 

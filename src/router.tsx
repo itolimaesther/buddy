@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { DashboardLayout } from "./components/layouts/DashboardLayout";
 import {
@@ -8,7 +8,7 @@ import {
 	EmailVerifiedPage,
 	DashboardPage,
 	MessagesPage,
-	SigninFormPage
+	SigninFormPage,
 } from "./pages";
 
 // ─── Route definitions ────────────────────────────────────────────────────────

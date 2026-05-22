@@ -5,8 +5,8 @@ import {
 	BarChart2,
 	Package,
 	Settings,
-  UserRoundPlus,
-  TrendingUp,
+	// UserRoundPlus,
+	// TrendingUp,
 } from "lucide-react";
 import type {
 	ChartDataPoint,
