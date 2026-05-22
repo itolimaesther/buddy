@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+
+@theme {
+  /* Brand */
+  --color-primary:       #ff8600;
+  --color-primaryHover:  #e09017;
+  --color-primaryLight:  #fff7ec;
+  --color-primaryBorder: #fddfa0;
+
+  /* Neutrals */
+  --color-dark:    #111827;
+  --color-gray700: #374151;
+  --color-gray600: #4b5563;
+  --color-gray500: #6b7280;
+  --color-gray400: #9ca3af;
+  --color-gray300: #d1d5db;
+  --color-gray200: #e5e7eb;
+  --color-gray100: #f3f4f6;
+  --color-gray50:  #f9fafb;
+
+  /* Semantic */
+  --color-green: #22c55e;
+  --color-red:   #ef4444;
+
+  /* Typography */
+  --font-sans: "Lexend", sans-serif;
+
+  --shadow-card:     0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-dropdown: 0 4px 16px rgba(0, 0, 0, 0.10);
+}
+
+
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+}
+
+
+
