@@ -4,7 +4,7 @@ import type { ButtonProps } from "../../types";
 
 const variantBase: Record<string, string> = {
 	primary: "bg-primary text-white hover:bg-primaryHover",
-	outline: "bg-white text-dark border border-gray200 hover:bg-gray100",
+	outline: "bg-transparent text-dark border border-gray200 hover:bg-gray100",
 	ghost: "bg-transparent text-gray600 hover:bg-gray100",
 	danger: "bg-red text-white hover:bg-red-600",
 };
@@ -37,7 +37,7 @@ export const Button: React.FC<ButtonProps> = ({
 			aria-disabled={disabled}
 			className={cn(
 				"inline-flex items-center justify-center gap-2",
-				"font-semibold rounded-[10px] border-none outline-none",
+				"font-semibold rounded-[10px] outline-none",
 				"transition-all duration-150 ease-in-out",
 				"cursor-pointer disabled:cursor-not-allowed disabled:opacity-55",
 				variantBase[variant],

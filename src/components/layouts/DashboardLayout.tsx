@@ -3,8 +3,6 @@ import { Outlet, useLocation } from "react-router-dom";
 import { Sidebar } from "./Sidebar";
 import { AppHeader } from "./AppHeader";
 
-// ─── Route → page title map ───────────────────────────────────────────────────
-
 const ROUTE_TITLES: Record<string, string> = {
 	"/app/dashboard": "My Portfolio",
 	"/app/messages": "Messages",
@@ -14,23 +12,20 @@ const ROUTE_TITLES: Record<string, string> = {
 	"/app/settings": "Settings",
 };
 
-// ─── Layout ───────────────────────────────────────────────────────────────────
-
 export const DashboardLayout: React.FC = () => {
 	const { pathname } = useLocation();
 	const title = ROUTE_TITLES[pathname] ?? "Dashboard";
 
 	return (
-		<div className="flex min-h-screen bg-gray50">
-			{/* Sticky sidebar */}
+		<div className="flex flex-col md:flex-row min-h-screen bg-gray50">
 			<Sidebar />
 
-			{/* Main content area */}
-			<div className="flex-1 flex flex-col overflow-auto min-w-0">
+			<div className="flex-1 flex flex-col overflow-auto min-w-0 pb-16 md:pb-0">
 				<AppHeader title={title} />
 
-				{/* Child page renders here */}
-				<Outlet />
+				<main className="flex-1 overflow-x-hidden">
+					<Outlet />
+				</main>
 			</div>
 		</div>
 	);

@@ -11,10 +11,10 @@ import {
 import { STAT_CARDS } from "../constants";
 
 export const DashboardPage: React.FC = () => (
-	<div className="flex gap-6 p-6">
+	<div className="flex flex-col lg:flex-row gap-6 p-4 sm:p-6">
 		{/* ── Main column ── */}
 		<main className="flex-1 flex flex-col gap-5 min-w-0">
-			<div className="grid grid-cols-3 gap-4">
+			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 				{STAT_CARDS.map((card) => (
 					<StatCard key={card.label} {...card} />
 				))}
@@ -25,7 +25,7 @@ export const DashboardPage: React.FC = () => (
 		</main>
 
 		{/* ── Right sidebar ── */}
-		<aside className="w-[260px] shrink-0 flex flex-col gap-5">
+		<aside className="w-full lg:w-[260px] shrink-0 flex flex-col gap-5">
 			<WatchlistCard />
 			<RevenueCard />
 			<TrendingNewsCard />

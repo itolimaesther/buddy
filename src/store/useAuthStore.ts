@@ -1,8 +1,7 @@
 import { create } from "zustand";
 import { persist, devtools } from "zustand/middleware";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-
+// Types 
 export interface AuthUser {
 	id: number;
 	first_name: string;
@@ -14,31 +13,17 @@ export interface AuthUser {
 }
 
 interface AuthState {
-	/**
-	 * Long-lived login token — persisted to localStorage.
-	 * Used by apiClient interceptor for all authenticated app requests.
-	 */
+	
 	token: string | null;
 
-	/**
-	 * Authenticated user profile — persisted to localStorage.
-	 */
+	
 	user: AuthUser | null;
 
-	/**
-	 * Short-lived token returned by /admin/register.
-	 * Used ONLY to authorise /admin/verify-otp and /admin/resend-otp.
-	 * NOT persisted — lost on page reload (user must re-register).
-	 */
 	registrationToken: string | null;
 
-	/**
-	 * Email captured during signup so the OTP page can display and
-	 * forward it to /admin/resend-otp.
-	 */
 	registrationEmail: string;
 
-	// ── Actions ──────────────────────────────────────────────────────────────
+	// Actions
 	setToken: (token: string) => void;
 	setUser: (user: AuthUser) => void;
 	setRegistrationToken: (token: string) => void;
@@ -46,7 +31,7 @@ interface AuthState {
 	logout: () => void;
 }
 
-// ─── Store ────────────────────────────────────────────────────────────────────
+// Store──────
 
 export const useAuthStore = create<AuthState>()(
 	devtools(
@@ -81,8 +66,6 @@ export const useAuthStore = create<AuthState>()(
 			}),
 			{
 				name: "buddy-auth",
-				// Only persist the post-login token + user.
-				// registrationToken and registrationEmail are session-only.
 				partialize: (state) => ({
 					token: state.token,
 					user: state.user,

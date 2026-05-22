@@ -14,11 +14,15 @@ export type Page =
 
 export type NavigateFn = (page: Page) => void;
 
-// ─── Auth ─────────────────────────────────────────────────────────────────────
-
+// Auth 
 export interface SignupFormData {
 	firstName: string;
 	lastName: string;
+	email: string;
+	password: string;
+}
+
+export interface SigninFormData {
 	email: string;
 	password: string;
 }
@@ -30,8 +34,7 @@ export interface SignupFormErrors {
 	password?: string;
 }
 
-// ─── Contacts / Messages ──────────────────────────────────────────────────────
-
+// Contacts / Messages 
 export interface Contact {
 	id: number;
   name: string;
@@ -45,16 +48,6 @@ export interface Contact {
 export type MessageSender = "me" | "other";
 
 export interface ChatMessage {
-	// id: number;
-	// from: MessageSender;
-	// text?: string;
-	// time?: string;
-	// type?: "file";
-	// filename?: string;
-	// fileUrl?: string;
-	// mimeType?: string;
-	// fileSize?: number;
-	// yesterday?: boolean;
 	id: number;
 	from: MessageSender;
 	text?: string;
@@ -76,8 +69,7 @@ export interface MessagePayload  {
 	fileUrl?: string;
 };
 
-// ─── Dashboard ────────────────────────────────────────────────────────────────
-
+//Dashboard
 export interface ChartDataPoint {
 	m: string;
 	v: number;
@@ -119,7 +111,7 @@ export interface StatCard {
 	iconColor: string;
 }
 
-// ─── UI Components ────────────────────────────────────────────────────────────
+//UI Components
 
 export type ButtonVariant = "primary" | "outline" | "ghost" | "danger";
 export type ButtonSize = "sm" | "md";

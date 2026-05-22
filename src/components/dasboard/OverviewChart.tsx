@@ -18,14 +18,12 @@ type Tab = (typeof OVERVIEW_TABS)[number];
 
 export const OverviewChart: React.FC = () => {
 	const [activeTab, setActiveTab] = useState<Tab>(OVERVIEW_TABS[0]);
-
 	const labels = CHART_DATA.map((d) => d.m);
 
 	const data: ChartData<"bar"> = {
 		labels,
 		datasets: [
 			{
-				// Primary dataset — highlighted orange for JUN, gray otherwise
 				data: CHART_DATA.map((d) => d.v),
 				backgroundColor: CHART_DATA.map((d) =>
 					d.m === "JUN" ? "#F97316" : "#E5E7EB",
@@ -40,7 +38,6 @@ export const OverviewChart: React.FC = () => {
 				barPercentage: 1,
 			},
 			{
-				// Secondary dataset — softer orange for JUN, lighter gray otherwise
 				data: CHART_DATA.map((d) => Math.round(d.v * 0.6)),
 				backgroundColor: CHART_DATA.map((d) =>
 					d.m === "JUN" ? "#FDBA74" : "#F3F4F6",
@@ -98,11 +95,17 @@ export const OverviewChart: React.FC = () => {
 	};
 
 	return (
-		<section className="bg-white rounded-[14px] p-6 shadow-card">
-			<div className="flex items-center justify-between mb-5">
+		<section className="bg-white rounded-[14px] p-4 sm:p-6 shadow-card">
+			{/* Fixed: Wrapped row configurations vertically on tight display sizes */}
+			<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
 				<h3 className="m-0 text-[16px] font-bold text-dark">Overview</h3>
 
-				<div className="flex gap-2" role="tablist" aria-label="Portfolio tabs">
+				{/* Fixed: Clean overflow alignment properties for filter tags */}
+				<div
+					className="flex flex-wrap gap-1.5"
+					role="tablist"
+					aria-label="Portfolio tabs"
+				>
 					{OVERVIEW_TABS.map((tab) => (
 						<button
 							key={tab}
@@ -110,7 +113,7 @@ export const OverviewChart: React.FC = () => {
 							aria-selected={activeTab === tab}
 							onClick={() => setActiveTab(tab)}
 							className={cn(
-								"px-3.5 py-1.5 rounded-full border-none cursor-pointer",
+								"px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border-none cursor-pointer",
 								"text-[12px] font-semibold transition-colors duration-150",
 								activeTab === tab
 									? "bg-primary text-white"

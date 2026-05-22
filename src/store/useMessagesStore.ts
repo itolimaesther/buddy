@@ -3,7 +3,7 @@ import { devtools } from "zustand/middleware";
 import { CONTACTS, CHAT_MESSAGES } from "../constants";
 import type { Contact, ChatMessage } from "../types";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+//Types
 
 interface MessagesState {
 	contacts: Contact[];
@@ -11,14 +11,13 @@ interface MessagesState {
 	selectedContactId: number;
 	searchQuery: string;
 
-	// ── Derived (computed via selectors below) ────────────────────────────────
-	// ── Actions ──────────────────────────────────────────────────────────────
+	// Actions 
 	setSelectedContactId: (id: number) => void;
 	setSearchQuery: (query: string) => void;
 	sendMessage: (text: string) => void;
 }
 
-// ─── Store ────────────────────────────────────────────────────────────────────
+// Store 
 
 export const useMessagesStore = create<MessagesState>()(
 	devtools(
@@ -58,8 +57,7 @@ export const useMessagesStore = create<MessagesState>()(
 	),
 );
 
-// ─── Selectors ────────────────────────────────────────────────────────────────
-// Use these in components to avoid re-renders from unrelated state slices.
+// Selectors
 
 export const selectSelectedContact = (state: MessagesState) =>
 	state.contacts.find((c) => c.id === state.selectedContactId);

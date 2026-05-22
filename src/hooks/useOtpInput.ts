@@ -18,8 +18,6 @@ interface UseOtpInputReturn {
 export function useOtpInput(): UseOtpInputReturn {
 	const [digits, setDigits] = useState<string[]>(Array(OTP_LENGTH).fill(""));
 
-	// ✅ Refs declared at the top level — NOT inside a loop or callback.
-	//    We create a fixed-length tuple so React sees the same number of
 	//    hook calls on every render.
 	const ref0 = useRef<HTMLInputElement>(null);
 	const ref1 = useRef<HTMLInputElement>(null);

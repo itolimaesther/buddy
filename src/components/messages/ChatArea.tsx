@@ -100,7 +100,6 @@ export const ChatArea: React.FC<ChatAreaProps> = ({ contact, messages }) => {
 
 									<div>
 										{msg.type === "file" ? (
-											/* File attachment */
 											<div
 												className={
 													"bg-white border border-gray200 rounded-xl " +
