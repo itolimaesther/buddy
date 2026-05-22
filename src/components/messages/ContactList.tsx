@@ -22,7 +22,7 @@ export const ContactList: React.FC<ContactListProps> = ({
 }) => (
 	<aside
 		className={
-			"w-[300px] shrink-0 border-r border-gray100 rounded-2xl bg-gray100/30 m-3 " +
+			"w-full shrink-0 border-r border-gray100 rounded-2xl bg-gray100/30 m-3 " +
 			"flex flex-col overflow-hidden"
 		}
 		aria-label="Conversations"

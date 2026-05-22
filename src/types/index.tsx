@@ -47,17 +47,19 @@ export interface Contact {
 
 export type MessageSender = "me" | "other";
 
+export type MessageType = "text" | "file";
 export interface ChatMessage {
 	id: number;
 	from: MessageSender;
 	text?: string;
 	time?: string;
-	type?: "file";
+	type?: MessageType;
+	fileUrl?: string;
 	filename?: string;
 	yesterday?: boolean;
 }
 
-export type MessageType = "text" | "file";
+
 
 export interface MessagePayload  {
 	type?: MessageType;

@@ -34,7 +34,11 @@ export const MessagesPage: React.FC = () => {
 				<div
 					className={`flex-1 flex flex-col overflow-hidden ${!selectedContactId ? "hidden md:flex" : "flex"}`}
 				>
-					<ChatArea contact={selectedContact} messages={messages} />
+					<ChatArea
+						contact={selectedContact}
+						messages={messages}
+						onBack={() => setSelectedContactId(0)}
+					/>
 					<MessageInput />
 				</div>
 			</div>

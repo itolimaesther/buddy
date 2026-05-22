@@ -11,10 +11,15 @@ interface MessagesState {
 	selectedContactId: number;
 	searchQuery: string;
 
-	// Actions 
+	// Actions
 	setSelectedContactId: (id: number) => void;
 	setSearchQuery: (query: string) => void;
-	sendMessage: (text: string) => void;
+	sendMessage: (payload: {
+		type: "text" | "file";
+		text?: string;
+		filename?: string;
+		fileUrl?: string;
+	}) => void;
 }
 
 // Store 
@@ -33,7 +38,7 @@ export const useMessagesStore = create<MessagesState>()(
 			setSearchQuery: (query) =>
 				set({ searchQuery: query }, false, "messages/setSearchQuery"),
 
-			sendMessage: (text) =>
+			sendMessage: (payload) =>
 				set(
 					(state) => ({
 						messages: [
@@ -41,7 +46,10 @@ export const useMessagesStore = create<MessagesState>()(
 							{
 								id: state.messages.length + 1,
 								from: "me" as const,
-								text,
+								type: payload.type,
+								text: payload.text,
+								filename: payload.filename,
+								fileUrl: payload.fileUrl,
 								time: new Date().toLocaleTimeString([], {
 									hour: "2-digit",
 									minute: "2-digit",
