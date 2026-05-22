@@ -1,7 +1,6 @@
 import { z } from "zod";
 
-// ─── Signup Form Schema ────────────────────────────────────────────────────────
-
+// Signup Form Schema
 export const signupSchema = z.object({
 	firstName: z
 		.string()
@@ -28,8 +27,7 @@ export const signupSchema = z.object({
 
 export type SignupSchema = z.infer<typeof signupSchema>;
 
-// ─── OTP Schema ───────────────────────────────────────────────────────────────
-
+//  OTP Schema 
 export const otpSchema = z.object({
 	digits: z
 		.array(z.string().regex(/^\d$/, "Must be a digit"))
@@ -38,7 +36,7 @@ export const otpSchema = z.object({
 
 export type OtpSchema = z.infer<typeof otpSchema>;
 
-// ─── Login Schema ─────────────────────────────────────────────────────────────
+// Login Schema 
 
 export const loginSchema = z.object({
 	email: z
