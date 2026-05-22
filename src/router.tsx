@@ -36,7 +36,7 @@ export const router = createBrowserRouter([
 		element: <EmailVerifiedPage />,
 	},
 
-	// ── Protected app shell (Sidebar + Header via Outlet) ─────────────────────
+	// Protected app shell (Sidebar + Header via Outlet)
 	{
 		path: "/app",
 		element: <DashboardLayout />,
@@ -75,7 +75,7 @@ export const router = createBrowserRouter([
 		],
 	},
 
-	// ── Catch-all fallback ────────────────────────────────────────────────────
+	// Catch-all fallback
 	{
 		path: "*",
 		element: <Navigate to="/" replace />,
