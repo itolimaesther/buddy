@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Search, Heart, Bell, ArrowLeft, File } from "lucide-react";
+import { Search, Heart, Bell, ArrowLeft } from "lucide-react";
 import { Avatar } from "../../components/ui/Avatar";
 import type { Contact, ChatMessage } from "../../types";
 import AvatarInf from "../../assets/avatar7.png";

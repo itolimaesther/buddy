@@ -10,7 +10,10 @@ export const MessageInput: React.FC = () => {
 	const handleSend = useCallback(() => {
 		const trimmed = text.trim();
 		if (!trimmed) return;
-		sendMessage(trimmed);
+		sendMessage({
+			type: "text",
+			text: trimmed,
+		});
 		setText("");
 	}, [text, sendMessage]);
 
